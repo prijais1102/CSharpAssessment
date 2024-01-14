@@ -11,7 +11,7 @@
         decimal lta;
         decimal pf;
         decimal basicSalary;
-        //List<OnPayroll> onPayroll=new List<OnPayroll>();
+        List<OnPayroll> onPayroll = new List<OnPayroll>();
         public OnPayroll()
         {
 
@@ -39,26 +39,25 @@
             exp= int.Parse(Console.ReadLine());
             Console.WriteLine("Enter basic salary");
             basicSalary= decimal.Parse(Console.ReadLine());
-            //AddDeveloper(id, developerName, joiningDate, projectAssigned,dept,manager,exp,basicSalary);
+            NetSalary();
+            AddDeveloper(id, developerName, joiningDate, projectAssigned, dept, manager, exp, basicSalary,da, lta, hra, pf,netSalary);
         }
         public override void DisplayDetails()
         {
+            Console.WriteLine("Onpayroll employee--");
             base.DisplayDetails();
-            //for (int i = 0; i < onPayroll.Count; i++)
-            //{                
-            //    Console.WriteLine("OnPayroll Employee");
-            //    Console.WriteLine("Department is" + dept);
-            //    Console.WriteLine("Manager is" + manager);
-            //    Console.WriteLine("Experience is" + exp);
-            //    Console.WriteLine("Basic Salary is" + basicSalary);
-            //    NetSalary();
-            //}
-            Console.WriteLine("OnPayroll Employee");
-            Console.WriteLine("Department is" + dept);
-            Console.WriteLine("Manager is" + manager);
-            Console.WriteLine("Experience is" + exp);
-            Console.WriteLine("Basic Salary is" + basicSalary);
-            NetSalary();
+            for (int i = 0; i < onPayroll.Count; i++)
+            {               
+                Console.WriteLine("Department is " + onPayroll[i].dept);
+                Console.WriteLine("Manager is " + onPayroll[i].manager);
+                Console.WriteLine("Experience is " + onPayroll[i].exp);
+                Console.WriteLine("Basic salary is " + onPayroll[i].basicSalary);
+                Console.WriteLine("Da is " + onPayroll[i].da);
+                Console.WriteLine("Lta is " + onPayroll[i].lta);
+                Console.WriteLine("Hra is " + onPayroll[i].hra);
+                Console.WriteLine("Pf is " + onPayroll[i].pf);
+                Console.WriteLine("Netsalary is " + onPayroll[i].netSalary);
+            }
         }
         public void NetSalary()
         {
@@ -97,27 +96,32 @@
 
             }
             netSalary=basicSalary+da+lta+hra-pf;
-            Console.WriteLine("da is " + da);
-            Console.WriteLine("lta is " + lta);
-            Console.WriteLine("hra is "+  hra);
-            Console.WriteLine("pf is " + pf);
-            Console.WriteLine("Netsalary is" + netSalary);
+            
         }
-        //public void AddDeveloper(int id, string developerName, DateOnly joiningDate, string projectAssigned, string dept, string manager, int exp, decimal basicSalary)
-        //{
-        //    onPayroll.Add(new OnPayroll { 
-        //        id = id,
-        //        developerName = developerName,
-        //        joiningDate = joiningDate,
-        //        projectAssigned = projectAssigned,
-        //        dept = dept,
-        //        manager = manager,
-        //        exp = exp,
-        //        basicSalary = basicSalary
+        public void AddDeveloper(int id, string developername, DateOnly joiningdate, string projectassigned, string dept, string manager, int exp, decimal basicsalary, decimal da,
+        decimal hra,
+        decimal lta,
+        decimal pf, decimal netSalary)
+        {
+            onPayroll.Add(new OnPayroll
+            {
+                id = id,
+                developerName = developername,
+                joiningDate = joiningdate,
+                projectAssigned = projectassigned,
+                dept = dept,
+                manager = manager,
+                exp = exp,
+                basicSalary = basicsalary,
+                netSalary = netSalary,
+                da = da,
+                hra = hra,
+                lta = lta,
+                pf = pf
 
-        //    });
+            });
 
 
-        //}
+        }
     }
 }

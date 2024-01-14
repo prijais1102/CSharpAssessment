@@ -13,16 +13,14 @@ namespace CSharpAssessment
         enum EmployeeType {OnContract=1, OnPayRoll=2 , Record=3};
         static void Main(string[] args)
         {
-            bool condition = true;
-            bool condition1 = true;
-
             try
             {
+               
+                bool condition = true;
+                bool condition1 = true;
                 while (condition)
                 {
-                    List<Developer> list = new List<Developer>();
-                    Developer a;
-                    Console.WriteLine("1.Add OnContract Developer\n2.Add OnPayRoll Developer\n3.End.");
+                    Console.WriteLine("1.Add OnContract Developer\n2.Add OnPayRoll Developer\n3.More options.");
                     Console.WriteLine("Enter choice");
                     int employeeType = int.Parse(Console.ReadLine());
                     Developer developer = null;
@@ -32,7 +30,6 @@ namespace CSharpAssessment
                            
                             developer = new OnContract();
                             developer.GetDetails();
-                            list.Add(developer);
                             condition1 = true;
                             while (condition1)
                             {
@@ -53,7 +50,6 @@ namespace CSharpAssessment
                         case (byte)EmployeeType.OnPayRoll:
                             developer = new OnPayroll();
                             developer.GetDetails();
-                            list.Add(developer);
                             condition1 = true;
                             while (condition1)
                             {
@@ -72,19 +68,35 @@ namespace CSharpAssessment
                             }
                             break;
                         case (byte)EmployeeType.Record:
+                            condition1= true;
+                            while (condition1)
+                            {
+                                Console.WriteLine("1.Display all records.");
+                                Console.WriteLine("2.Display records where NetSalary is more than 20k.");
+                                Console.WriteLine("3.Display records where developer name contains 'D'");
+                                Console.WriteLine("4.Display records where joining date is b/w 01/01/2020 and 01/01/2022");
+                                Console.WriteLine("5.Display records where joining date is 12 Jan 2022");
+                                Console.WriteLine("6.End");
+                                Console.WriteLine("Enter Choice");
+                                int ch = int.Parse(Console.ReadLine());
+                                switch (ch)
+                                {
+                                    case 1: break;
+                                    case 2: break;
+                                    case 3: break;
+                                    case 4: break;
+                                    case 5: break;
+                                    case 6: condition1 = false;
+                                        condition = false;
+                                        break;
 
-                            List<OnContract> listb = list.OfType<OnContract>().ToList();
-                            List<OnPayroll> listc = list.OfType<OnPayroll>().ToList();
-                            foreach(var item in listb)
-                            {
-                                Console.WriteLine(item);
+
+
+                                }
                             }
-                            foreach (var item in listc)
-                            {
-                                Console.WriteLine(item);
-                            }
-                            condition = false;
+                            
                             break;
+                           
 
 
                     }//switch
