@@ -3,10 +3,10 @@
     internal class OnContract:Developer
     {
         
-        int duration;
-        int chargesPerDay;
-        int netSalary;
-        List<OnContract> onContract = new List<OnContract>();
+        public int duration { get; set; }
+        public int chargesPerDay { get; set; }
+        public int netSalary { get; set; }
+        //List<OnContract> onContract = new List<OnContract>();
         public OnContract()
         {
 
@@ -25,37 +25,42 @@
             Console.WriteLine("Enter charges per day");
             chargesPerDay = int.Parse(Console.ReadLine());
             NetSalary();
-            AddDeveloper(id, developerName, joiningDate, projectAssigned, duration, chargesPerDay,netSalary);
+            //AddDeveloper(id, developerName, joiningDate, projectAssigned, duration, chargesPerDay,netSalary);
         }
         public override void DisplayDetails()
         {
             Console.WriteLine("OnContract Employee");
             base.DisplayDetails();
-            for (int i = 0; i < onContract.Count; i++)
-            {               
-                Console.WriteLine("Duration is " + onContract[i].duration);
-                Console.WriteLine("Charges per day is " + onContract[i].chargesPerDay);               
-                Console.WriteLine("Net salary is " + onContract[i].netSalary);
-            }
+            //for (int i = 0; i < onContract.Count; i++)
+            //{               
+            //    Console.WriteLine("Duration is " + onContract[i].duration);
+            //    Console.WriteLine("Charges per day is " + onContract[i].chargesPerDay);               
+            //    Console.WriteLine("Net salary is " + onContract[i].netSalary);
+            //}
+            Console.WriteLine("Duration is " + duration);
+            Console.WriteLine("Charges per day is " + chargesPerDay);               
+            Console.WriteLine("Net salary is " + netSalary);
+            //}
+
         }
         public void NetSalary()
         {
             netSalary = duration * chargesPerDay;
         }
-        public void AddDeveloper(int id, string developerName, DateOnly joiningDate, string projectAssigned, int duration, int chargesPerDay,int netSalary)
-        {
-            onContract.Add(new OnContract
-            {
-                id = id,
-                developerName = developerName,
-                joiningDate = joiningDate,
-                projectAssigned = projectAssigned,
-                duration = duration,
-                chargesPerDay = chargesPerDay,
-                netSalary=netSalary
-            });
-            ;
-        }
+        //public void AddDeveloper(int id, string developerName, DateOnly joiningDate, string projectAssigned, int duration, int chargesPerDay,int netSalary)
+        //{
+        //    onContract.Add(new OnContract
+        //    {
+        //        id = id,
+        //        developerName = developerName,
+        //        joiningDate = joiningDate,
+        //        projectAssigned = projectAssigned,
+        //        duration = duration,
+        //        chargesPerDay = chargesPerDay,
+        //        netSalary=netSalary
+        //    });
+        //    ;
+        //}
 
 
     }

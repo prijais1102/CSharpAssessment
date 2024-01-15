@@ -2,16 +2,16 @@
 {
     internal class OnPayroll:Developer
     {
-        string dept;
-        string manager;
-        decimal netSalary;
-        int exp;
-        decimal da;
-        decimal hra;
-        decimal lta;
-        decimal pf;
-        decimal basicSalary;
-        List<OnPayroll> onPayroll = new List<OnPayroll>();
+        public string dept { get; set; }
+        public string manager { get; set; }
+        public decimal netSalary { get; set; }
+        public int exp {  get; set; }
+        public decimal da { get; set; }
+        public decimal hra { get; set; }
+        public decimal lta { get; set; }
+        public decimal pf { get; set; }
+        public decimal basicSalary { get; set; }
+        //List<OnPayroll> onPayroll = new List<OnPayroll>();
         public OnPayroll()
         {
 
@@ -40,24 +40,33 @@
             Console.WriteLine("Enter basic salary");
             basicSalary= decimal.Parse(Console.ReadLine());
             NetSalary();
-            AddDeveloper(id, developerName, joiningDate, projectAssigned, dept, manager, exp, basicSalary,da, lta, hra, pf,netSalary);
+            //AddDeveloper(id, developerName, joiningDate, projectAssigned, dept, manager, exp, basicSalary,da, lta, hra, pf,netSalary);
         }
         public override void DisplayDetails()
         {
             Console.WriteLine("Onpayroll employee--");
             base.DisplayDetails();
-            for (int i = 0; i < onPayroll.Count; i++)
-            {               
-                Console.WriteLine("Department is " + onPayroll[i].dept);
-                Console.WriteLine("Manager is " + onPayroll[i].manager);
-                Console.WriteLine("Experience is " + onPayroll[i].exp);
-                Console.WriteLine("Basic salary is " + onPayroll[i].basicSalary);
-                Console.WriteLine("Da is " + onPayroll[i].da);
-                Console.WriteLine("Lta is " + onPayroll[i].lta);
-                Console.WriteLine("Hra is " + onPayroll[i].hra);
-                Console.WriteLine("Pf is " + onPayroll[i].pf);
-                Console.WriteLine("Netsalary is " + onPayroll[i].netSalary);
-            }
+            //for (int i = 0; i < onPayroll.Count; i++)
+            //{               
+            //    Console.WriteLine("Department is " + onPayroll[i].dept);
+            //    Console.WriteLine("Manager is " + onPayroll[i].manager);
+            //    Console.WriteLine("Experience is " + onPayroll[i].exp);
+            //    Console.WriteLine("Basic salary is " + onPayroll[i].basicSalary);
+            //    Console.WriteLine("Da is " + onPayroll[i].da);
+            //    Console.WriteLine("Lta is " + onPayroll[i].lta);
+            //    Console.WriteLine("Hra is " + onPayroll[i].hra);
+            //    Console.WriteLine("Pf is " + onPayroll[i].pf);
+            //    Console.WriteLine("Netsalary is " + onPayroll[i].netSalary);
+            //}
+            Console.WriteLine("Department is " + dept);
+            Console.WriteLine("Manager is " + manager);
+            Console.WriteLine("Experience is " + exp);
+            Console.WriteLine("Basic salary is " + basicSalary);
+            Console.WriteLine("Da is " + da);
+            Console.WriteLine("Lta is " + lta);
+            Console.WriteLine("Hra is " + hra);
+            Console.WriteLine("Pf is " + pf);
+            Console.WriteLine("Netsalary is " + netSalary);
         }
         public void NetSalary()
         {
@@ -98,30 +107,30 @@
             netSalary=basicSalary+da+lta+hra-pf;
             
         }
-        public void AddDeveloper(int id, string developername, DateOnly joiningdate, string projectassigned, string dept, string manager, int exp, decimal basicsalary, decimal da,
-        decimal hra,
-        decimal lta,
-        decimal pf, decimal netSalary)
-        {
-            onPayroll.Add(new OnPayroll
-            {
-                id = id,
-                developerName = developername,
-                joiningDate = joiningdate,
-                projectAssigned = projectassigned,
-                dept = dept,
-                manager = manager,
-                exp = exp,
-                basicSalary = basicsalary,
-                netSalary = netSalary,
-                da = da,
-                hra = hra,
-                lta = lta,
-                pf = pf
+        //public void AddDeveloper(int id, string developername, DateOnly joiningdate, string projectassigned, string dept, string manager, int exp, decimal basicsalary, decimal da,
+        //decimal hra,
+        //decimal lta,
+        //decimal pf, decimal netSalary)
+        //{
+        //    onPayroll.Add(new OnPayroll
+        //    {
+        //        id = id,
+        //        developerName = developername,
+        //        joiningDate = joiningdate,
+        //        projectAssigned = projectassigned,
+        //        dept = dept,
+        //        manager = manager,
+        //        exp = exp,
+        //        basicSalary = basicsalary,
+        //        netSalary = netSalary,
+        //        da = da,
+        //        hra = hra,
+        //        lta = lta,
+        //        pf = pf
 
-            });
+        //    });
 
 
-        }
+        //}
     }
 }
